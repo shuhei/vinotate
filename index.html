@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vinotate</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style type="text/css" media="screen"></style>
+    <script src="./js/jQuery-1.6.4.js" type="text/javascript"></script>
+    <script src="./js/json2.js" type="text/javascript"></script>
+    <script src="./js/underscore-1.2.2.js" type="text/javascript"></script>
+    <script src="./js/backbone-0.5.3.js" type="text/javascript"></script>
+    <script src="./js/backbone-localstorage.js" type="text/javascript"></script>
+    <script src="./js/app.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1>Vinotate</h1>
+    </header>
+    <div id="container">
+      <aside id="sidebar">
+        <header class="search">
+          <input type="text" value="" name="search" id="search">
+        </header>
+        <ul id="wine-list"></ul>
+        <footer>
+          <button id="new-wine">New Wine</button>
+        </footer>
+      </aside>
+      <div id="main"></div>
+    </div>
+    
+    <script id="item-template" type="text/template">
+      <h2><span class="vintage"><%= vintage %></span> <%= name %></h2>
+    </script>
+    <script id="info-template" type="text/template">
+      <h2><span class="vintage"><%= vintage %></span> <%= name %></h2>
+      <p>Procuded in <%= region %>, <%= country %></p>
+      <p>
+        <button id="remove-wine">Remove</button>
+      </p>
+    </script>
+    <script id="form-template" type="text/template">
+        <label for="color">Color</label><br>
+        <select name="color" id="color">
+          <option value="red">Red</option>
+          <option value="white">White</option>
+        </select><br>
+
+        <label for="name">Name</label><br>        
+        <input type="text" value="" name="name" id="name" placehoolder="Name"><br>
+        
+        <label for="vintage">Vintage</label><br>        
+        <input type="text" value="" name="vintage" id="vintage" placehoolder="Vintage"><br>
+        
+        <label for="country">Country</label> and <label for="region">Region</label><br>
+        <input type="text" value="" name="region" id="region" placeholder="Region">, <input type="text" id="country" value="" name="country" placeholder="Country"><br>
+        
+        <p class="add">
+          <button id="add-wine">Add</button>
+        </p>
+    </script>
+  </body>
+</html>

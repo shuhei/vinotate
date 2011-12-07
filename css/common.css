@@ -1,0 +1,114 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  color: #666;
+}
+header#header {
+  margin: 0;
+  padding: 20px 20px;
+  background: -webkit-gradient(linear,left top,left bottom,from(#b36),to(#914));
+}
+header#header h1 {
+  margin: 0;
+  color: #fff;
+}
+#container {
+  display: -webkit-box;
+  background: -webkit-gradient(linear,left top,left bottom,from(#ffe),to(#ffc));
+  -webkit-box-flex: 1;
+  -webkit-box-align: stretch;
+  -webkit-box-pack: start;
+}
+aside#sidebar {
+  width: 20%;
+  top: 0;
+  -webkit-box-ordinal-group: 1;
+  -webkit-box-sizing: border-box;
+  background: #fff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  border-right: 1px solid #ddd;
+}
+header.search {
+  padding: 10px 20px;
+  bottom: 100px;
+  background: -webkit-gradient(linear,left top,left bottom,from(white),to(#DEDFE0));
+  border: 1px solid #eee;
+}
+header.search input#search {
+  width: 100%;
+}
+ul#wine-list {
+  margin: 0;
+  padding: 0;
+  -webkit-box-flex: 1;
+}
+ul#wine-list li {
+  margin: 0;
+  padding: 0;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+ul#wine-list li.red {
+  border-left: 5px solid #914;
+}
+ul#wine-list li.white {
+  border-left: 5px solid #ffc;
+}
+ul#wine-list li h2 {
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+ul#wine-list li h2 span.vintage {
+  color: #bbb;
+}
+aside footer {
+  -webkit-box-sizing: border-box;
+  padding: 10px 20px;
+  text-align: right;
+  background: #eee;
+  border: 1px solid #eee;
+  background: -webkit-gradient(linear,left top,left bottom,from(white),to(#DEDFE0));
+}
+aside footer button {
+  
+}
+
+/* main */
+#main {
+  width: 80%;
+  -webkit-box-ordinal-group: 2;
+  padding: 20px;
+  line-height: 1.5em;
+}
+
+#main h2 {
+  margin-top: 0;
+}
+
+#main p.add {
+}
+
+/* clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both; 
+}
+.clearfix {
+  zoom: 1;
+}
