@@ -64,6 +64,13 @@ ul#wine-list li.red {
 ul#wine-list li.white {
   border-left: 5px solid #ffc;
 }
+ul#wine-list li.selected.red {
+  background: #914;
+  color: #fff;
+}
+ul#wine-list li.selected.white {
+  background: #ffc;
+}
 ul#wine-list li h2 {
   font-size: medium;
   margin: 0;

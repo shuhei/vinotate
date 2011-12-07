@@ -18,11 +18,6 @@ jQuery(function($) {
   var WineList = Backbone.Collection.extend({
     model: Wine,
     localStorage: new Store('wines'),
-    initialize: function() {
-      this.bind('reset', function() {
-        
-      });
-    },
     comparator: function(wine) {
       return wine.get('vintage');
     },
@@ -49,7 +44,7 @@ jQuery(function($) {
     tagName: 'li',
     template: _.template($('#item-template').html()),
     events: {
-      'click': 'show'
+      'click': 'selected'
     },
     initialize: function() {
       this.model.bind('change', this.render, this);
@@ -63,7 +58,8 @@ jQuery(function($) {
     remove: function() {
       $(this.el).remove();
     },
-    show: function() {
+    selected: function() {
+      $(this.el).addClass('selected').siblings().removeClass('selected');
       this.model.trigger('selected:true', this.model);
     }
   });
