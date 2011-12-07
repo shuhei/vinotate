@@ -35,6 +35,7 @@
     <script id="info-template" type="text/template">
       <h2><span class="vintage"><%= vintage %></span> <%= name %></h2>
       <p>Procuded in <%= region %>, <%= country %></p>
+      <p><%= note %></p>
       <p>
         <button id="remove-wine">Remove</button>
       </p>
@@ -47,13 +48,16 @@
         </select><br>
 
         <label for="name">Name</label><br>        
-        <input type="text" value="" name="name" id="name" placehoolder="Name"><br>
+        <input type="text" value="" name="name" id="name" placeholder="Name"><br>
         
         <label for="vintage">Vintage</label><br>        
-        <input type="text" value="" name="vintage" id="vintage" placehoolder="Vintage"><br>
+        <input type="text" value="" name="vintage" id="vintage" placeholder="Vintage"><br>
         
         <label for="country">Country</label> and <label for="region">Region</label><br>
         <input type="text" value="" name="region" id="region" placeholder="Region">, <input type="text" id="country" value="" name="country" placeholder="Country"><br>
+        
+        <label for="note">Note</label><br>        
+        <textarea name="note" id="note" placeholder="Note" rows="10" cols="40"></textarea>
         
         <p class="add">
           <button id="add-wine">Add</button>

@@ -32,6 +32,7 @@ jQuery(function($) {
           pattern.test(wine.get('variety')) ||
           pattern.test(wine.get('region')) ||
           pattern.test(wine.get('country')) ||
+          pattern.test(wine.get('note')) ||
           pattern.test(wine.get('vintage').toString());
       });
     }
@@ -97,7 +98,8 @@ jQuery(function($) {
         name: this.$('#name').val(),
         vintage: parseInt(this.$('#vintage').val()),
         region: this.$('#region').val(),
-        country: this.$('#country').val()
+        country: this.$('#country').val(),
+        note: this.$('#note').val()
       });
     }
   });
@@ -108,7 +110,6 @@ jQuery(function($) {
       'keyup #wine-search': 'search',
       'click #new-wine': 'showForm'
     },
-    searching: false,
     initialize: function() {
       wines.bind('add', this.reset, this);
       wines.bind('reset', this.reset, this);
