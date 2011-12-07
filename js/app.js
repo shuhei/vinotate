@@ -18,8 +18,27 @@ jQuery(function($) {
   var WineList = Backbone.Collection.extend({
     model: Wine,
     localStorage: new Store('wines'),
+    initialize: function() {
+      this.bind('reset', function() {
+        
+      });
+    },
     comparator: function(wine) {
       return wine.get('vintage');
+    },
+    search: function(query) {
+      query = query.trim();
+      if (query === '') return this.models;
+      
+      var pattern = new RegExp(query, 'gi');
+      return this.filter(function(wine) {
+        return pattern.test(wine.get('name')) ||
+          pattern.test(wine.get('color')) ||
+          pattern.test(wine.get('variety')) ||
+          pattern.test(wine.get('region')) ||
+          pattern.test(wine.get('country')) ||
+          pattern.test(wine.get('vintage').toString());
+      });
     }
   });
   
@@ -90,10 +109,12 @@ jQuery(function($) {
   var AppView = Backbone.View.extend({
     el: $('#container'),
     events: {
+      'keyup #wine-search': 'search',
       'click #new-wine': 'showForm'
     },
+    searching: false,
     initialize: function() {
-      wines.bind('add', this.addOne, this);
+      wines.bind('add', this.reset, this);
       wines.bind('reset', this.reset, this);
       wines.bind('selected:true', this.showInfo, this);
       
@@ -101,9 +122,10 @@ jQuery(function($) {
     },
     addOne: function(wine) {
       var view = new WineItemView({ model: wine });
-      this.$('#wine-list').insertAt(view.render().el, wines.indexOf(wine));
+      this.$('#wine-list').append(view.render().el);
     },
     reset: function() {
+      this.$('#wine-search').val('');
       this.$('#wine-list').html('');
       wines.each(this.addOne);
     },
@@ -114,8 +136,17 @@ jQuery(function($) {
     showForm: function() {
       var formView = new FormView();
       this.$('#main').html(formView.render().el);
+    },
+    search: function() {
+      var query = this.$('#wine-search').val();
+           
+      this.$('#wine-list').html('');
+      _(wines.search(query)).each(function(wine) {
+        var view = new WineItemView({ model: wine });
+        this.$('#wine-list').append(view.render().el);
+      });
     }
   });
   
-  var app = new AppView;
+  var app = new AppView();
 });

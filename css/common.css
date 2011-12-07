@@ -44,7 +44,7 @@ header.search {
   background: -webkit-gradient(linear,left top,left bottom,from(white),to(#DEDFE0));
   border: 1px solid #eee;
 }
-header.search input#search {
+header.search input#wine-search {
   width: 100%;
 }
 ul#wine-list {
